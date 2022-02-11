@@ -90,3 +90,9 @@ button:hover {
     flex-direction: horizontal;
     justify-content: center;
 }
+/* for login error message */
+.container3 {
+    display:flex;
+    flex-direction: horizontal;
+    justify-content: center;
+}

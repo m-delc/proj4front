@@ -27,6 +27,7 @@ export default function Signup({ onLogin }) {
         })
         .then(res => res.json())
         .then(json => {
+            // json.errors ? setErrors(Object.entries(json.errors)) : navigate('/about')
             if(json.errors) setErrors(Object.entries(json.errors))
         })
         navigate('/about')
@@ -35,6 +36,7 @@ export default function Signup({ onLogin }) {
 
     return (
         // <div>
+        <>
             <form onSubmit={onSubmit} className="form">
                 {/* <div className="container1"> */}
                     <h3 className="login-h3">Sign ur ass uPPP</h3>
@@ -72,8 +74,8 @@ export default function Signup({ onLogin }) {
                     </button>
                 {/* </div> */}
             </form>
+            { errors ? errors.map(e => <div>{e[0]+' : ' + e[1]}</div>) : null}
+        </>
         // </div>
     )
 }
-
-// onSubmit={e => navigate('/about')} 
