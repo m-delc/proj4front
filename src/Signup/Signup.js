@@ -1,8 +1,8 @@
 import { React, useState } from 'react'
 import './Signup.css'
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function Signup({ onLogin }) {
+export default function Signup() {
 
     const navigate = useNavigate()
 
@@ -27,15 +27,16 @@ export default function Signup({ onLogin }) {
         })
         .then(res => res.json())
         .then(json => {
-            // json.errors ? setErrors(Object.entries(json.errors)) : navigate('/about')
             if(json.errors) setErrors(Object.entries(json.errors))
         })
+        // need something like a ternary which says that
+        // if errors, stay on current page and render errors
+        // else, navigate
         navigate('/about')
     }
 
 
     return (
-        // <div>
         <>
             <form onSubmit={onSubmit} className="form">
                 {/* <div className="container1"> */}
@@ -76,6 +77,5 @@ export default function Signup({ onLogin }) {
             </form>
             { errors ? errors.map(e => <div>{e[0]+' : ' + e[1]}</div>) : null}
         </>
-        // </div>
     )
 }
