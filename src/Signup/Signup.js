@@ -1,10 +1,10 @@
 import { React, useState } from 'react'
 import './Signup.css'
-// import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Signup({ onLogin }) {
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const [username, setUsername] = useState("");
     const [name, setName] = useState("");
@@ -29,6 +29,7 @@ export default function Signup({ onLogin }) {
         .then(json => {
             if(json.errors) setErrors(Object.entries(json.errors))
         })
+        navigate('/about')
     }
 
 
@@ -65,12 +66,14 @@ export default function Signup({ onLogin }) {
                         value={passwordConfirmation}
                         onChange={(e) => setPasswordConfirmation(e.target.value)}
                         />
-                    <button type="submit">Sign up!</button>
+                    <button 
+                        
+                        type="submit">Sign up!
+                    </button>
                 {/* </div> */}
             </form>
         // </div>
     )
 }
 
-
-// onSubmit={e => navigate('/home')}
+// onSubmit={e => navigate('/about')} 
