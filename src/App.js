@@ -1,12 +1,12 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
-import Login from "./login/login"
-import Signup from "./signup/signup"
-import Navbar from "./navbar/navbar"
-import Home from './home/home'
-import About from './about/about'
+import Login from "./Login/Login"
+import Signup from "./Signup/Signup"
+import Navbar from "./Navbar/Navbar"
+import Home from './Home/Home'
+import About from './About/About'
 import { React, useEffect, useState } from 'react'
-import Index from './index/index'
+import Index from './IndexAll/IndexAll'
 
 function App() {
 
