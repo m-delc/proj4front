@@ -10,7 +10,7 @@ export default function IndexAll() {
         .then(setIndex)
     }, [])
 
-    console.log(index)
+    // console.log(index)
 
 
     return (

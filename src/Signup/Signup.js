@@ -15,6 +15,13 @@ export default function Signup({ setUser, setIsAuthenticated }) {
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
     const [errors, setErrors] = useState([])
 
+    // Ix's AUTH
+    // Ix's AUTH
+    // Ix's AUTH
+    // Ix's AUTH
+    // Ix's AUTH
+
+    // http://localhost:3000/users
 
     function onSubmit(e){
         e.preventDefault()
@@ -39,8 +46,8 @@ export default function Signup({ setUser, setIsAuthenticated }) {
                 })
             } else {
                 res.json()
-                .then(json => setErrors(json.errors))
-            }
+                .then(json => setErrors(Object.entries(json.error))
+                )}
         })
         // need something like a ternary which says that
         // if errors, stay on current page and render errors
@@ -50,6 +57,8 @@ export default function Signup({ setUser, setIsAuthenticated }) {
         // } else
         // navigate('/about')
     }
+
+    console.log(errors[0])
 
 
     return (
@@ -91,7 +100,7 @@ export default function Signup({ setUser, setIsAuthenticated }) {
                     </button>
                 {/* </div> */}
             </form>
-            { errors ? errors.map(e => <div>{e[0]+' : ' + e[1]}</div>) : null}
+            { errors ? errors.map(e => <div key={e}>{e[0]+' : ' + e[1]}</div>) : null}
         </>
     )
 }

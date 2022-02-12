@@ -21,18 +21,35 @@ export default function Login({ setUser, setIsAuthenticated }) {
         }
         // console.log(user)
 
+        // http://localhost:3000/login
+
         fetch('/login', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(user)
         })
-        .then(r => r.json())
-        .then(json => {
-            // console.log(json)
-            setUserWelcome(json.message)
-            if(json.error) setError(json.error)
-        })
+        // .then(res => {
+        //     if(res.ok) {
+        //         res.json()
+        //         .then(json => {
+        //             setUser(json.username)
+        //             setIsAuthenticated(true)
+        //         })
+        //     } else {
+            //         res.json()
+            //         .then(json => setError(json.error))
+            //     }
+            // })
+            
+            .then(res=> res.json())
+            .then(json => {
+                console.log(json)
+                if(json.error) setError(json.error)
+                setUserWelcome(json.message)
+            })
+        // console.log(user.message)
     }
+
 
 
 
@@ -67,8 +84,8 @@ export default function Login({ setUser, setIsAuthenticated }) {
             {userWelcome}
                 </div>
             </form>
-            <div>
             {/* <Signup setUser={setUser} setIsAuthenticated={setUser}/> */}
+            <div>
 
             </div>
 
