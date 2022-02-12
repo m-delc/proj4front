@@ -1,8 +1,11 @@
-import { React, useState } from 'react'
+import { React, 
+    useState,
+    useEffect } from 'react'
 import './Signup.css'
 import { useNavigate } from "react-router-dom";
+import Login from '../Login/Login'
 
-export default function Signup() {
+export default function Signup({ setUser, setIsAuthenticated }) {
 
     const navigate = useNavigate()
 
@@ -12,27 +15,40 @@ export default function Signup() {
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
     const [errors, setErrors] = useState([])
 
+
     function onSubmit(e){
         e.preventDefault()
+        setErrors([])
         const user = {
             name: name,
             username: username,
             password: password,
             password_confirmation: passwordConfirmation
         }
-        fetch('http://localhost:3000/users', {
+        fetch('/users', {
             method:'POST',
             headers:{'Content-Type': 'application/json'},
             body:JSON.stringify(user)
         })
-        .then(res => res.json())
-        .then(json => {
-            if(json.errors) setErrors(Object.entries(json.errors))
+        .then(res => {
+            if(res.ok) {
+                res.json()
+                .then(user => {
+                    setUser(user)
+                    setIsAuthenticated(true)
+                })
+            } else {
+                res.json()
+                .then(json => setErrors(json.errors))
+            }
         })
         // need something like a ternary which says that
         // if errors, stay on current page and render errors
         // else, navigate
-        navigate('/about')
+        // if(errors){
+        //     return
+        // } else
+        // navigate('/about')
     }
 
 

@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <header>
       <div className="topnav">
-        <a href="/">Home</a>
+        <a href="/home">Home</a>
         <a href="/login">Login</a>
         <a href="/signup">Signup</a>
         <a href="/about">About</a>

@@ -10,16 +10,27 @@ import Index from './IndexAll/IndexAll'
 
 function App() {
 
-  // const [user, setUser] = useState(null)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [user, setUser] = useState(null)
 
-  // useEffect(() => {
-  //   fetch('/me').then((response) => {
-  //     if (response.ok) {
-  //       response.json().then((user) => setUser(user))
-  //     }
-  //   })
-  // }, [])
 
+  console.log(user)
+  console.log(isAuthenticated)
+
+  useEffect(() => {
+    fetch('/authorized_user')
+    .then(r => {
+        if (r.ok) {
+            r.json()
+            .then(user => {
+                setIsAuthenticated(true)
+                setUser(user)
+            })
+        }
+    })
+})
+
+  if(!isAuthenticated) return <Login error={"Please Login"} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />
 
   return (
 
@@ -31,7 +42,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
 
     </div>

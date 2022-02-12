@@ -1,11 +1,12 @@
 import './Login.css'
 // import { useNavigate } from "react-router-dom";
 import { useState } from 'react'
-
-export default function Login() {    
+import Signup from '../Signup/Signup'
+export default function Login({ setUser, setIsAuthenticated }) {    
     
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [userWelcome, setUserWelcome] = useState('')
 
     const [error, setError] = useState([])
     
@@ -20,7 +21,7 @@ export default function Login() {
         }
         // console.log(user)
 
-        fetch('http://localhost:3000/login', {
+        fetch('/login', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(user)
@@ -28,9 +29,12 @@ export default function Login() {
         .then(r => r.json())
         .then(json => {
             // console.log(json)
+            setUserWelcome(json.message)
             if(json.error) setError(json.error)
         })
     }
+
+
 
     return (
         <>
@@ -60,8 +64,14 @@ export default function Login() {
                 <div className="container3">
 
             {error ? <div>{error}</div> : null}
+            {userWelcome}
                 </div>
             </form>
+            <div>
+            {/* <Signup setUser={setUser} setIsAuthenticated={setUser}/> */}
+
+            </div>
+
         </>
     );
 }
