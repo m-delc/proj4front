@@ -2,6 +2,10 @@ import { React, useState, useEffect } from 'react'
 
 export default function IndexAll() {
 
+    // this was just for testing early on
+    // this was just for testing early on
+    // this was just for testing early on
+
     const [index, setIndex] = useState([])
 
     useEffect(() => {
@@ -11,7 +15,6 @@ export default function IndexAll() {
     }, [])
 
     // console.log(index)
-
 
     return (
         

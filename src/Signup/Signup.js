@@ -1,28 +1,21 @@
-import { React, 
-    useState,
-    useEffect } from 'react'
+import { React, useState, } from 'react'
 import './Signup.css'
-import { useNavigate } from "react-router-dom";
 import Login from '../Login/Login'
 
 export default function Signup({ setUser, setIsAuthenticated }) {
-
-    const navigate = useNavigate()
+    
+    // Ix's AUTH
+    // Ix's AUTH
+    // Ix's AUTH
+    // Ix's AUTH
+    // Ix's AUTH
 
     const [username, setUsername] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
     const [errors, setErrors] = useState([])
-
-    // Ix's AUTH
-    // Ix's AUTH
-    // Ix's AUTH
-    // Ix's AUTH
-    // Ix's AUTH
-
-    // http://localhost:3000/users
-
+    
     function onSubmit(e){
         e.preventDefault()
         setErrors([])
@@ -32,6 +25,7 @@ export default function Signup({ setUser, setIsAuthenticated }) {
             password: password,
             password_confirmation: passwordConfirmation
         }
+        // http://localhost:3000/users
         fetch('/users', {
             method:'POST',
             headers:{'Content-Type': 'application/json'},
@@ -58,14 +52,11 @@ export default function Signup({ setUser, setIsAuthenticated }) {
         // navigate('/about')
     }
 
-    console.log(errors[0])
-
-
     return (
         <>
             <form onSubmit={onSubmit} className="form">
                 {/* <div className="container1"> */}
-                    <h3 className="login-h3">Sign ur ass uPPP</h3>
+                    <h3 className="login-h3">Sign up</h3>
                     <input
                         type="text"
                         id="name"
@@ -95,7 +86,6 @@ export default function Signup({ setUser, setIsAuthenticated }) {
                         onChange={(e) => setPasswordConfirmation(e.target.value)}
                         />
                     <button 
-                        
                         type="submit">Sign up!
                     </button>
                 {/* </div> */}

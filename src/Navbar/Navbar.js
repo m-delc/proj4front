@@ -3,6 +3,10 @@ import './Navbar.css'
 
 export default function Navbar() {
 
+  // how to set active link in navbar?
+  // how to set active link in navbar?
+  // how to set active link in navbar?
+  
   const [activeLink, setActiveLink] = useState()
 
   return (

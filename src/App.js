@@ -6,7 +6,6 @@ import Signup from "./Signup/Signup"
 import Navbar from "./Navbar/Navbar"
 import Home from './Home/Home'
 import About from './About/About'
-// import Index from './IndexAll/IndexAll'
 
 function App() {
 
@@ -30,17 +29,15 @@ function App() {
     })
 }, [])
 
-if(!isAuthenticated) return <Login error={"Please Login"} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />
+if(!isAuthenticated) return <Login error={"Please Login"} />
 
 return (
 
-
     <div className="container">
       <Navbar />
-      {/* <Index /> */}
       <Routes>
         <Route path="/signup" element={<Signup setUser={setUser} setIsAuthenticated={setUser} />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setUser={setUser} setIsAuthenticated={setIsAuthenticated} />} />
         <Route path="/about" element={<About />} />
         <Route path="/home" element={<Home />} />
         {/* <Route path="/" element={<App />} /> */}
