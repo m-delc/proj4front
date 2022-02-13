@@ -40,7 +40,7 @@ export default function Login({ setUser, setIsAuthenticated, setUserWelcome }) {
                     setIsAuthenticated(true)
                     // setUserWelcome(user.message)
                     // console.log(user.message)
-                    navigate('/about')
+                    navigate('/signup')
                 })
             } else {
                     res.json()

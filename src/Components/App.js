@@ -49,13 +49,14 @@ if (!isAuthenticated) return <Login error={"Please Login"} setUser={setUser} set
 return (
 
     <div className="container">
+      
       <Navbar setUser={setUser} setIsAuthenticated={setIsAuthenticated} setUserWelcome={setUserWelcome} setLogoutMessage={setLogoutMessage} user={user} />
       <Routes>
         <Route path="/signup" element={<Signup setUser={setUser} setIsAuthenticated={setUser} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About userWelcome={userWelcome} />} />
         <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile user={user} />} />
+        <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
       </Routes>
     </div>
 
