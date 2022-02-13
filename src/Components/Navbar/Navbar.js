@@ -31,7 +31,8 @@ export default function Navbar({ setIsAuthenticated, user, setUser, setLogoutMes
         <Link to='/'>Home</Link>
         <Link to='about'>About</Link>
         <Link to="/" onClick={logout}>Logout</Link>
-        <Link to='/profile'>{user.username}'s Settings</Link>
+        {/* <Link to='/profile'>{user.username}'s Settings</Link> */}
+        <Link to='/profile'>{user? user.username : null}'s Settings</Link>
         {/* <div className="user">
           {user? user.username : null}
         </div> */}

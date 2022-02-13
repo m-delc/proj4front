@@ -61,34 +61,34 @@ export default function Login({ setUser, setIsAuthenticated, setUserWelcome }) {
     return (
         <>
         {/* <Navbar setUser={setUser} setIsAuthenticated={setUser} setUserWelcome={setUserWelcome} setLogoutMessage={setLogoutMessage} /> */}
-                    <form onSubmit={onSubmit} className="form">
-                <div className="container1">
-                    <h3 className="login-h3">Login</h3>
-                    <input 
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        placeholder="Username" 
-                        name="uname" 
-                        />
-                    <input 
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Password" 
-                        name="pwd" 
-                        />
-                    <div className="container2">
-                        <button className="button1" type="submit">Login</button>
-                        {/* <button className="button3" type="submit">Forgot</button> */}
-                    </div>
+        <form onSubmit={onSubmit} className="form">
+            <div className="container1">
+                <h3 className="login-h3">Login</h3>
+                <input 
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Username" 
+                    name="uname" 
+                    />
+                <input 
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Password" 
+                    name="pwd" 
+                    />
+                <div className="container2">
+                    <button className="button1" type="submit">Login</button>
+                    {/* <button className="button3" type="submit">Forgot</button> */}
                 </div>
-                <div className="container3">
-                    {error ? <div>{error}</div> : null}
-                    {/* <About userWelcome={userWelcome} /> */}
-                </div>
-            </form>
-            {/* <Signup setUser={setUser} setIsAuthenticated={setUser}/> */}
+            </div>
+            <div className="container3">
+                {error ? <div>{error}</div> : null}
+                {/* <About userWelcome={userWelcome} /> */}
+            </div>
+        </form>
+        {/* <Signup setUser={setUser} setIsAuthenticated={setUser}/> */}
         </>
     );
 }

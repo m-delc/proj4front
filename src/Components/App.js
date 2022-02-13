@@ -6,6 +6,7 @@ import Signup from "./Signup/Signup"
 import Navbar from "./Navbar/Navbar"
 import Home from './Home/Home'
 import About from './About/About'
+import Profile from './Profile/Profile'
 
 function App() {
 
@@ -49,13 +50,12 @@ return (
 
     <div className="container">
       <Navbar setUser={setUser} setIsAuthenticated={setIsAuthenticated} setUserWelcome={setUserWelcome} setLogoutMessage={setLogoutMessage} user={user} />
-      {/* <About userWelcome={userWelcome} /> */}
       <Routes>
         <Route path="/signup" element={<Signup setUser={setUser} setIsAuthenticated={setUser} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About userWelcome={userWelcome} />} />
-        {/* <Route path="/home" element={<Home />} /> */}
         <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile user={user} />} />
       </Routes>
     </div>
 
