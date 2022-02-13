@@ -1,15 +1,24 @@
 import './Login.css'
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from 'react'
 // import Signup from '../Signup/Signup'
-export default function Login({ setUser, setIsAuthenticated }) {    
+// import About from '../About/About'
+import Navbar from "../Navbar/Navbar"
+
+
+
+
+
+
+
+export default function Login({ setUser, setIsAuthenticated, setUserWelcome }) {    
     
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [userWelcome, setUserWelcome] = useState('')
+    // const [userWelcome, setUserWelcome] = useState('')
 
     const [error, setError] = useState([])
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     
     const onSubmit = (e) => {
         e.preventDefault()
@@ -30,6 +39,8 @@ export default function Login({ setUser, setIsAuthenticated }) {
                     setUser(user)
                     setIsAuthenticated(true)
                     setUserWelcome(user.message)
+                    // console.log(user.message)
+                    navigate('/about')
                 })
             } else {
                     res.json()
@@ -49,6 +60,8 @@ export default function Login({ setUser, setIsAuthenticated }) {
 
     return (
         <>
+        {/* <Navbar setUser={setUser} setIsAuthenticated={setUser} setUserWelcome={setUserWelcome} setLogoutMessage={setLogoutMessage} /> */}
+        <Navbar />
             <form onSubmit={onSubmit} className="form">
                 <div className="container1">
                     <h3 className="login-h3">Login</h3>
@@ -58,14 +71,14 @@ export default function Login({ setUser, setIsAuthenticated }) {
                         onChange={(e) => setUsername(e.target.value)}
                         placeholder="Username" 
                         name="uname" 
-                        required />
+                        />
                     <input 
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Password" 
                         name="pwd" 
-                        required />
+                        />
                     <div className="container2">
                         <button className="button1" type="submit">Login</button>
                         {/* <button className="button3" type="submit">Forgot</button> */}
@@ -73,7 +86,7 @@ export default function Login({ setUser, setIsAuthenticated }) {
                 </div>
                 <div className="container3">
                     {error ? <div>{error}</div> : null}
-                    {userWelcome}
+                    {/* <About userWelcome={userWelcome} /> */}
                 </div>
             </form>
             {/* <Signup setUser={setUser} setIsAuthenticated={setUser}/> */}

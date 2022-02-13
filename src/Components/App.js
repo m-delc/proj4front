@@ -10,38 +10,50 @@ import About from './About/About'
 function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState([])
+  const [logoutMessage, setLogoutMessage] = useState("")
+  const [userWelcome, setUserWelcome] = useState('')
 
 
+  
+  console.log(isAuthenticated)
   // console.log(user)
-  // console.log(isAuthenticated)
-
+  // console.log(userWelcome)
+  
+  
   useEffect(() => {
     fetch('/authorized_user')
     .then(res => {
         if (res.ok) {
           res.json()
           .then(user => {
-              setIsAuthenticated(true)
-              setUser(user)
+            setIsAuthenticated(true)
+            setUser(user)
           })
         }
-    })
-}, [])
+      })
+    }, [])
 
+    // const auth = () =>{
+    //   if (user) return setIsAuthenticated(true)
+    // }
+    // auth={auth}
+    
+    
+    // if (!user.message) return console.log(user.message)
 
-
-if(!isAuthenticated) return <Login error={"Please Login"} />
+if (!isAuthenticated) return <Login error={"Please Login"}  />
 
 return (
 
     <div className="container">
-      <Navbar />
+      <Navbar setUser={setUser} setIsAuthenticated={setUser} setUserWelcome={setUserWelcome} setLogoutMessage={setLogoutMessage} />
+      {/* <About userWelcome={userWelcome} /> */}
       <Routes>
         <Route path="/signup" element={<Signup setUser={setUser} setIsAuthenticated={setUser} />} />
-        <Route path="/login" element={<Login setUser={setUser} setIsAuthenticated={setIsAuthenticated} />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login setUser={setUser} setIsAuthenticated={setIsAuthenticated} setUserWelcome={setUserWelcome} />} />
+        <Route path="/about" element={<About userWelcome={userWelcome} />} />
+        {/* <Route path="/home" element={<Home />} /> */}
         <Route path="/" element={<Home />} />
       </Routes>
     </div>
