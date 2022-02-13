@@ -43,12 +43,12 @@ function App() {
     
     // if (!user.message) return console.log(user.message)
 
-if (!isAuthenticated) return <Login error={"Please Login"} setUser={setUser} setIsAuthenticated={setIsAuthenticated}  />
+if (!isAuthenticated) return <Login error={"Please Login"} setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
 
 return (
 
     <div className="container">
-      <Navbar setUser={setUser} setIsAuthenticated={setIsAuthenticated} setUserWelcome={setUserWelcome} setLogoutMessage={setLogoutMessage} />
+      <Navbar setUser={setUser} setIsAuthenticated={setIsAuthenticated} setUserWelcome={setUserWelcome} setLogoutMessage={setLogoutMessage} user={user} />
       {/* <About userWelcome={userWelcome} /> */}
       <Routes>
         <Route path="/signup" element={<Signup setUser={setUser} setIsAuthenticated={setUser} />} />

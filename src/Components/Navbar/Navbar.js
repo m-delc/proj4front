@@ -2,7 +2,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { React, useState } from 'react'
 import './Navbar.css'
 
-export default function Navbar({ setIsAuthenticated, setUser, setLogoutMessage }) {
+export default function Navbar({ setIsAuthenticated, user, setUser, setLogoutMessage }) {
 
   // how to set active link in navbar?
   // how to set active link in navbar?
@@ -28,11 +28,17 @@ export default function Navbar({ setIsAuthenticated, setUser, setLogoutMessage }
   return (
     <header>
       <div className="topnav">
-        <a href="/">Home</a>
-        <a href="/signup">Signup</a>
-        <a href="/about">About</a>
-        <a href="/login">Login</a>
+        <Link to='/'>Home</Link>
+        <Link to='about'>About</Link>
         <Link to="/" onClick={logout}>Logout</Link>
+        <Link to='/profile'>{user.username}'s Settings</Link>
+        {/* <div className="user">
+          {user? user.username : null}
+        </div> */}
+        {/* <a href="/">Home</a>
+        <a href="/signup">Signup</a>
+        <a href="/about">About</a> */}
+        {/* <a href="/login">Login</a> */}
         {/* <a href="/logout">Logout</a> */}
       </div>
     </header>
