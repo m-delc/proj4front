@@ -20,14 +20,16 @@ function App() {
     fetch('/authorized_user')
     .then(res => {
         if (res.ok) {
-            res.json()
-            .then(user => {
-                setIsAuthenticated(true)
-                setUser(user)
-            })
+          res.json()
+          .then(user => {
+              setIsAuthenticated(true)
+              setUser(user)
+          })
         }
     })
 }, [])
+
+
 
 if(!isAuthenticated) return <Login error={"Please Login"} />
 
