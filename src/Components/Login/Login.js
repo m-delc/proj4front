@@ -38,7 +38,7 @@ export default function Login({ setUser, setIsAuthenticated, setUserWelcome }) {
                 .then(user => {
                     setUser(user)
                     setIsAuthenticated(true)
-                    setUserWelcome(user.message)
+                    // setUserWelcome(user.message)
                     // console.log(user.message)
                     navigate('/about')
                 })
@@ -61,8 +61,7 @@ export default function Login({ setUser, setIsAuthenticated, setUserWelcome }) {
     return (
         <>
         {/* <Navbar setUser={setUser} setIsAuthenticated={setUser} setUserWelcome={setUserWelcome} setLogoutMessage={setLogoutMessage} /> */}
-        <Navbar />
-            <form onSubmit={onSubmit} className="form">
+                    <form onSubmit={onSubmit} className="form">
                 <div className="container1">
                     <h3 className="login-h3">Login</h3>
                     <input 

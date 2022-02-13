@@ -10,14 +10,15 @@ import About from './About/About'
 function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState(null)
   const [logoutMessage, setLogoutMessage] = useState("")
   const [userWelcome, setUserWelcome] = useState('')
+  // setUserWelcome={setUserWelcome}
 
 
   
   console.log(isAuthenticated)
-  // console.log(user)
+  console.log(user)
   // console.log(userWelcome)
   
   
@@ -42,16 +43,16 @@ function App() {
     
     // if (!user.message) return console.log(user.message)
 
-if (!isAuthenticated) return <Login error={"Please Login"}  />
+if (!isAuthenticated) return <Login error={"Please Login"} setUser={setUser} setIsAuthenticated={setIsAuthenticated}  />
 
 return (
 
     <div className="container">
-      <Navbar setUser={setUser} setIsAuthenticated={setUser} setUserWelcome={setUserWelcome} setLogoutMessage={setLogoutMessage} />
+      <Navbar setUser={setUser} setIsAuthenticated={setIsAuthenticated} setUserWelcome={setUserWelcome} setLogoutMessage={setLogoutMessage} />
       {/* <About userWelcome={userWelcome} /> */}
       <Routes>
         <Route path="/signup" element={<Signup setUser={setUser} setIsAuthenticated={setUser} />} />
-        <Route path="/login" element={<Login setUser={setUser} setIsAuthenticated={setIsAuthenticated} setUserWelcome={setUserWelcome} />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About userWelcome={userWelcome} />} />
         {/* <Route path="/home" element={<Home />} /> */}
         <Route path="/" element={<Home />} />
