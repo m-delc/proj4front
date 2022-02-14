@@ -6,8 +6,6 @@ import Navbar from "./Navbar/Navbar"
 import Home from './Home/Home'
 import About from './About/About'
 import Profile from './Profile/Profile'
-import LoginForm from './LoginForm/LoginForm'
-import SignupForm from './SignupForm/SignupForm'
 import Appointments from './Appointments/Appointments'
 
 function App() {

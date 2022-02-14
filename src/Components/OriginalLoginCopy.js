@@ -4,6 +4,12 @@ import { useState } from 'react'
 
 
 export default function Login({ setUser, setIsAuthenticated, setUserWelcome }) {    
+
+    // this page is just extra shit
+    // this page is just extra shit
+    // this page is just extra shit
+    // this page is just extra shit
+    // this page is just extra shit
     
     // login
     // login
