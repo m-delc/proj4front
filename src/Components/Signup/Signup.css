@@ -1,5 +1,5 @@
 /* form for sign up */
-.form {
+/* .form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,9 +14,9 @@
     margin-right: -50%;
     transform: translate(-50%, -50%);
     margin: 0;
-}
+} */
 
-input[type=text], input[type=password] {
+/* input[type=text], input[type=password] {
     width: 95%;
     padding: 12px 20px;
     padding-top: 10px;
@@ -27,7 +27,7 @@ input[type=text], input[type=password] {
     background-color: rgb(33, 33, 34);
     color:rgba(175, 149, 35, 0.836);
     font-size: 18px;
-}
+} */
 
 /* contains form */
 /* .container1 {
@@ -40,9 +40,9 @@ input[type=text], input[type=password] {
     width: 100%;
 } */
 
-.login-h3 { 
+/* .login-h3 { 
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 8px;
-}
+} */

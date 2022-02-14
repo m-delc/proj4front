@@ -11,15 +11,15 @@ export default function Signup({ setUser, setIsAuthenticated }) {
     // Ix's AUTH
 
     const [username, setUsername] = useState("");
-    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
-    const [errors, setErrors] = useState([])
-    const [message201, setMessage201] = useState('')
+    const [signupErrors, setSignupErrors] = useState([])
+    // const [message201, setMessage201] = useState('')
     
-    function onSubmit(e){
+    function signupOnSubmit(e){
         e.preventDefault()
-        setErrors([])
+        setSignupErrors([])
         const user = {
             name: name,
             username: username,
@@ -37,20 +37,20 @@ export default function Signup({ setUser, setIsAuthenticated }) {
                 .then(user => {
                     setUser(user)
                     setIsAuthenticated(true)
-                    setMessage201(user.message)
+                    // setMessage201(user.message)
                 })
             } else {
                 res.json()
-                .then(json => setErrors(Object.entries(json.error))
+                .then(json => setSignupErrors(Object.entries(json.error))
                 )}
         })
     }
 
     return (
         <>
-            <form onSubmit={onSubmit} className="form">
+            <form onSubmit={signupOnSubmit} className="form">
                 {/* <div className="container1"> */}
-                    {message201 ? <h3 className="login-h3">{message201}</h3> : <h3 className="login-h3">Sign up</h3> }
+                    {/* {message201 ? <h3 className="login-h3">{message201}</h3> : <h3 className="login-h3">Sign up</h3> } */}
                     <input
                         type="text"
                         id="name"
@@ -80,11 +80,11 @@ export default function Signup({ setUser, setIsAuthenticated }) {
                         onChange={(e) => setPasswordConfirmation(e.target.value)}
                         />
                     <button 
-                        type="submit">Sign upppp
+                        type="submit">Sign up
                     </button>
                 {/* </div> */}
             </form>
-            { errors ? errors.map(e => <div key={e}>{e[0]+' : ' + e[1]}</div>) : null}
+            { signupErrors ? signupErrors.map(e => <div key={e}>{e[0]+' : ' + e[1]}</div>) : null}
             {/* { message201 ? message201 : null } */}
         </>
     )
