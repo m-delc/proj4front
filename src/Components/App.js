@@ -12,14 +12,12 @@ function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
-  const [logoutMessage, setLogoutMessage] = useState("")
+  // const [logoutMessage, setLogoutMessage] = useState("")
   const [userWelcome, setUserWelcome] = useState('')
   // setUserWelcome={setUserWelcome}
 
-
-  
-  console.log(isAuthenticated)
-  console.log(user)
+  console.log(`Any Authenticated User Set? ${isAuthenticated}`)
+  console.log(`User is ${user}`)
   // console.log(userWelcome)
   
   
@@ -36,13 +34,7 @@ function App() {
       })
     }, [])
 
-    // const auth = () =>{
-    //   if (user) return setIsAuthenticated(true)
-    // }
-    // auth={auth}
-    
-    
-    // if (!user.message) return console.log(user.message)
+
 
 if (!isAuthenticated) return <Login error={"Please Login"} setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
 
@@ -50,7 +42,7 @@ return (
 
     <div className="container">
       
-      <Navbar setUser={setUser} setIsAuthenticated={setIsAuthenticated} setUserWelcome={setUserWelcome} setLogoutMessage={setLogoutMessage} user={user} />
+      <Navbar setUser={setUser} setIsAuthenticated={setIsAuthenticated} setUserWelcome={setUserWelcome} user={user} />
       <Routes>
         <Route path="/signup" element={<Signup setUser={setUser} setIsAuthenticated={setUser} />} />
         <Route path="/login" element={<Login />} />
