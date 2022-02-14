@@ -1,5 +1,5 @@
 import './Login.css'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from 'react'
 // import Signup from '../Signup/Signup'
 // import About from '../About/About'
@@ -50,31 +50,38 @@ export default function Login({ setUser, setIsAuthenticated, setUserWelcome }) {
 
     return (
         <>
-        <form onSubmit={onSubmit} className="form">
-            <div className="container1">
-                <h3 className="login-h3">Login</h3>
-                <input 
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Username" 
-                    name="uname" 
-                    />
-                <input 
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Password" 
-                    name="pwd" 
-                    />
-                <div className="container2">
-                    <button className="button1" type="submit">Login</button>
+        <div className="main-horizontal-container">
+            <form onSubmit={onSubmit} className="form">
+                <div className="container1">
+                    <div className="container4">
+                        <p></p>
+                    <h3 className="login-h3">Login</h3>
+                    <Link to='/signup'><h3 className="login-h3">Signup</h3></Link>
+
+                    </div>
+                    <input 
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="Username" 
+                        name="uname" 
+                        />
+                    <input 
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Password" 
+                        name="pwd" 
+                        />
+                    <div className="container2">
+                        <button className="button1" type="submit">Login</button>
+                    </div>
                 </div>
-            </div>
-            <div className="container3">
-                {error ? <div>{error}</div> : null}
-            </div>
-        </form>
+                <div className="container3">
+                    {error ? <div>{error}</div> : null}
+                </div>
+            </form>
+        </div>
         </>
     );
 }

@@ -20,16 +20,16 @@ export default function Navbar({ setIsAuthenticated, user, setUser }) {
       setIsAuthenticated(false);
       setUser(null)
       // setLogoutMessage("You are logged out")
-      navigate('./')
+      navigate('./home')
     })
   }
 
   return (
     <header>
       <div className="topnav">
-        <Link to='/'>Home</Link>
+        <Link to='/home'>Home</Link>
         <Link to='about'>About</Link>
-        <Link to="/" onClick={logout}>Logout</Link>
+        <Link to='/home' onClick={logout}>Logout</Link>
         <Link to='/profile'>{user? user.username : null}'s Settings</Link>
       </div>
     </header>
