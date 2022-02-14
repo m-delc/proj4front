@@ -16,6 +16,7 @@ body {
     /* margin-right: -50%;
     transform: translate(-50%, -50%); */
     margin: 0;
+    margin-top: 250px;;
 }
 /* already a member? */
 .login-h3 {

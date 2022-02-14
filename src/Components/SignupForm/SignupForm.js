@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react'
+// import '../LoginForm/LoginForm.css'
 
 export default function SignupForm({ setUser, setIsAuthenticated }) {
 
+    // first name, last name
     const [signupName, setSignupName] = useState("");
     const [signupErrors, setSignupErrors] = useState([])
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -43,7 +45,7 @@ export default function SignupForm({ setUser, setIsAuthenticated }) {
 
   return <div>
                 <form onSubmit={signupOnSubmit} className="form">
-                {/* <div className="container1"> */}
+                <div className="container1">
                     <div className="container4">
                         <h3 className="login-h3">Signup</h3>
                     </div>
@@ -78,9 +80,10 @@ export default function SignupForm({ setUser, setIsAuthenticated }) {
                     <button 
                         type="submit">Sign up
                     </button>
-                {/* </div> */}
+                </div>
             </form>
-            { signupErrors ? signupErrors.map(e => <div key={e}>{e[0]+' : ' + e[1]}</div>) : null}
+            {/* { signupErrors ? signupErrors.map(e => <div key={e}>{e[0]+' : ' + e[1]}</div>) : null} */}
+            { signupErrors ? signupErrors.map(e => <div key={e}>{e[1]}</div>) : null}
 
   </div>;
 }

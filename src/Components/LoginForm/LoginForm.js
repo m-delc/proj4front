@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react'
+import './LoginForm.css'
 
 export default function LoginForm({ setUser, setIsAuthenticated }) {
 
@@ -26,7 +27,7 @@ export default function LoginForm({ setUser, setIsAuthenticated }) {
                 .then(user => {
                     setUser(user)
                     setIsAuthenticated(true)
-                    navigate('/about')
+                    navigate('/home')
                 })
             } else {
                     res.json()

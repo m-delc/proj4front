@@ -8,6 +8,7 @@ import About from './About/About'
 import Profile from './Profile/Profile'
 import LoginForm from './LoginForm/LoginForm'
 import SignupForm from './SignupForm/SignupForm'
+import Appointments from './Appointments/Appointments'
 
 function App() {
 
@@ -69,8 +70,7 @@ return (
         <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/loginform" element={<LoginForm setIsAuthenticated={setIsAuthenticated} />} />
-        <Route path="/signupform" element={<SignupForm setIsAuthenticated={setIsAuthenticated} />} /> */}
+        <Route path="/appointments" element={<Appointments />} />
       </Routes>
     </div>
 

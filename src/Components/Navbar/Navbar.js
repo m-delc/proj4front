@@ -28,9 +28,9 @@ export default function Navbar({ setIsAuthenticated, user, setUser }) {
     <header>
       <div className="topnav">
         <Link to='/home'>Home</Link>
-        <Link to='about'>About</Link>
+        <Link to='/about'>About</Link>
         <Link to='/home' onClick={logout}>Logout</Link>
-        <Link to='/profile'>{user? user.username : null}'s Settings</Link>
+        <Link to='/appointments'>{user? user.username : null}'s appointments</Link>
       </div>
     </header>
   )
