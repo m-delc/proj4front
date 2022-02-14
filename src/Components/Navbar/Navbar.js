@@ -1,5 +1,5 @@
 import { useNavigate, Link } from "react-router-dom";
-import { React, useState } from 'react'
+import { React } from 'react'
 import './Navbar.css'
 
 export default function Navbar({ setIsAuthenticated, user, setUser }) {

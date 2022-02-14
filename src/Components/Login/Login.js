@@ -1,36 +1,31 @@
 import './Login.css'
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from 'react'
-// import Signup from '../Signup/Signup'
-// import About from '../About/About'
-// import Navbar from "../Navbar/Navbar"
 
 
 export default function Login({ setUser, setIsAuthenticated, setUserWelcome }) {    
     
-    // the following is from original /login
-    // the following is from original /login
-    // the following is from original /login
-    // const [userWelcome, setUserWelcome] = useState('')
+    // login
+    // login
+    // login
+    // login
     const [loginUsername, setLoginUsername] = useState('')
     const [loginPassword, setLoginPassword] = useState('')
     const [loginError, setLoginError] = useState([])
 
     const navigate = useNavigate()
 
-    // added from /signup
-    // added from /signup
-    // added from /signup
-    // added from /signup
-    const [name, setName] = useState("");
+    // signup
+    // signup
+    // signup
+    // signup
+    const [signupName, setSignupName] = useState("");
     const [signupErrors, setSignupErrors] = useState([])
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
-    // for signup, but added here
-    // for signup, but added here
-    // for signup, but added here
     const [signupUsername, setSignupUsername] = useState('')
     const [signupPassword, setSignupPassword] = useState('')
 
+    // login submit
     // login submit
     // login submit
     // login submit
@@ -52,8 +47,6 @@ export default function Login({ setUser, setIsAuthenticated, setUserWelcome }) {
                     setUser(user)
                     console.log(user)
                     setIsAuthenticated(true)
-                    // setUserWelcome(user.message)
-                    // console.log(user.message)
                     navigate('/about')
                 })
             } else {
@@ -66,11 +59,12 @@ export default function Login({ setUser, setIsAuthenticated, setUserWelcome }) {
     // signup submit
     // signup submit
     // signup submit
+    // signup submit
     function signupOnSubmit(e){
         e.preventDefault()
         // setSignupErrors([])
         const user = {
-            name: name,
+            name: signupName,
             username: signupUsername,
             password: signupPassword,
             password_confirmation: passwordConfirmation
@@ -87,7 +81,6 @@ export default function Login({ setUser, setIsAuthenticated, setUserWelcome }) {
                     setUser(user)
                     console.log(user.username)
                     setIsAuthenticated(true)
-                    // setMessage201(user.message)
                 })
             } else {
                 res.json()
@@ -104,12 +97,9 @@ export default function Login({ setUser, setIsAuthenticated, setUserWelcome }) {
             {/* login form */}
             {/* login form */}
             {/* login form */}
-            
-
             <form onSubmit={loginOnSubmit} className="form">
                 <div className="container1">
                     <div className="container4">
-                        <p></p>
                     <h3 className="login-h3">Login</h3>
 
                     </div>
@@ -117,14 +107,14 @@ export default function Login({ setUser, setIsAuthenticated, setUserWelcome }) {
                         type="text"
                         value={loginUsername}
                         onChange={(e) => setLoginUsername(e.target.value)}
-                        placeholder="Username" 
+                        placeholder="username" 
                         name="uname" 
                         />
                     <input 
                         type="password"
                         value={loginPassword}
                         onChange={(e) => setLoginPassword(e.target.value)}
-                        placeholder="Password" 
+                        placeholder="password" 
                         name="pwd" 
                         />
                     <div className="container2">
@@ -142,14 +132,15 @@ export default function Login({ setUser, setIsAuthenticated, setUserWelcome }) {
             {/* signup form */}
             <form onSubmit={signupOnSubmit} className="form">
                 <div className="container1">
-                <Link to='/signup'><h3 className="login-h3">Signup</h3></Link>
-
+                <div className="container4">
+                    <h3 className="login-h3">Signup</h3>
+                    </div>
                     <input
                         type="text"
                         id="name"
                         placeholder="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        value={signupName}
+                        onChange={(e) => setSignupName(e.target.value)}
                         />
                     <input 
                         type="text"
