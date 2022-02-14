@@ -58,21 +58,20 @@ function App() {
 if (!isAuthenticated) return <Login error={"Please Login"} setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
 
 
-return (
-  
-    <div className="container">
-      
-      <Navbar setUser={setUser} setIsAuthenticated={setIsAuthenticated} user={user} />
-      <Routes>
-        <Route path="/about" element={<About />} />
-        <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/appointments" element={<Appointments />} />
-      </Routes>
-    </div>
+  return (
+    
+      <div className="container">
+        <Navbar setUser={setUser} setIsAuthenticated={setIsAuthenticated} user={user} />
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/appointments" element={<Appointments />} />
+        </Routes>
+      </div>
 
-  );
+    );
 }
 
 export default App;
