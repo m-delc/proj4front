@@ -66,7 +66,7 @@ return (
       
       <Navbar setUser={setUser} setIsAuthenticated={setIsAuthenticated} setUserWelcome={setUserWelcome} user={user} />
       <Routes>
-        <Route path="/signup" element={<Signup setUser={setUser} setIsAuthenticated={setUser} />} />
+        {/* <Route path="/signup" element={<Signup setUser={setUser} setIsAuthenticated={setUser} />} /> */}
         <Route path="/about" element={<About userWelcome={userWelcome} />} />
         <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
         <Route path="/home" element={<Home />} />
