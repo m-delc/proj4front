@@ -12,14 +12,10 @@ function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
-  const [logoutMessage, setLogoutMessage] = useState("")
+  // const [logoutMessage, setLogoutMessage] = useState("")
   const [userWelcome, setUserWelcome] = useState('')
   // setUserWelcome={setUserWelcome}
 
-
-  
-  console.log(isAuthenticated)
-  console.log(user)
   // console.log(userWelcome)
   
   
@@ -35,28 +31,46 @@ function App() {
         }
       })
     }, [])
+    
+    // Playing around with useEffect, not important
+    // Playing around with useEffect, not important
+    // Playing around with useEffect, not important
+    useEffect(() => {
+      return user ? console.log(`Current user is ${user.username}`) : null
+    }, [user])
+    
+    useEffect(() => {
+      return !user ? console.log(`No user is currently logged in`) : null
+    }, [user])
 
-    // const auth = () =>{
-    //   if (user) return setIsAuthenticated(true)
-    // }
-    // auth={auth}
-    
-    
-    // if (!user.message) return console.log(user.message)
+    // Not working
+    // Not working
+    // Not working
+    // useEffect(() => {
+    //     return !isAuthenticated ? console.log("No user is currently authenticated") : null
+    //   }, [isAuthenticated])
+    // useEffect(() => {
+    //   return isAuthenticated ? console.log(`The user ${user.username} is currently authenticated`) : null
+    // }, [isAuthenticated, user])
+
+
+
+
 
 if (!isAuthenticated) return <Login error={"Please Login"} setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
 
-return (
 
+return (
+  
     <div className="container">
       
-      <Navbar setUser={setUser} setIsAuthenticated={setIsAuthenticated} setUserWelcome={setUserWelcome} setLogoutMessage={setLogoutMessage} user={user} />
+      <Navbar setUser={setUser} setIsAuthenticated={setIsAuthenticated} setUserWelcome={setUserWelcome} user={user} />
       <Routes>
         <Route path="/signup" element={<Signup setUser={setUser} setIsAuthenticated={setUser} />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About userWelcome={userWelcome} />} />
-        <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
 

@@ -26,7 +26,6 @@ export default function Signup({ setUser, setIsAuthenticated }) {
             password: password,
             password_confirmation: passwordConfirmation
         }
-        // http://localhost:3000/users
         fetch('/users', {
             method:'POST',
             headers:{'Content-Type': 'application/json'},
@@ -45,13 +44,6 @@ export default function Signup({ setUser, setIsAuthenticated }) {
                 .then(json => setErrors(Object.entries(json.error))
                 )}
         })
-        // need something like a ternary which says that
-        // if errors, stay on current page and render errors
-        // else, navigate
-        // if(errors){
-        //     return
-        // } else
-        // navigate('/about')
     }
 
     return (

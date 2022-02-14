@@ -1,12 +1,12 @@
 import React, {useState} from "react";
-import {useNavigate} from 'react-router-dom'
+// import {useNavigate} from 'react-router-dom'
 import './Profile.css'
 
 export default function Profile({ user, setUser }) {
 
     const { username, name } = user
 
-    const navigate = useNavigate('')
+    // const navigate = useNavigate('')
 
     const [changeName, setChangeName] = useState('')
     const [changeUsername, setChangeUsername] = useState('')
@@ -34,18 +34,6 @@ export default function Profile({ user, setUser }) {
                 })
             }
         })
-        
-        
-        
-        // i wrote this
-        // i wrote this
-        // i wrote this
-        // .then(res => res.json())
-        // .then(data => {
-        //     setUser(newUserInfo)
-        //     navigate('/profile') 
-        // })
-        
     }
 
   return (
