@@ -6,6 +6,8 @@ import Navbar from "./Navbar/Navbar"
 import Home from './Home/Home'
 import About from './About/About'
 import Profile from './Profile/Profile'
+import LoginForm from './LoginForm/LoginForm'
+import SignupForm from './SignupForm/SignupForm'
 
 function App() {
 
@@ -67,6 +69,8 @@ return (
         <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        {/* <Route path="/loginform" element={<LoginForm setIsAuthenticated={setIsAuthenticated} />} />
+        <Route path="/signupform" element={<SignupForm setIsAuthenticated={setIsAuthenticated} />} /> */}
       </Routes>
     </div>
 
